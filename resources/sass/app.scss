@@ -1,0 +1,103 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.image-card {
+  margin-top: 30px;
+  //box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+  background: #fff;
+}
+.pagination-div{
+    width:20px;
+}
+// .image-card{
+//     height: inherit;
+//     padding-top:20px;
+//     padding-bottom:20px;
+        
+// }
+.image-card{
+    height: inherit;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align: justify;
+    position: relative;
+    .image-box img{
+        height: 300px;
+        width: 300px;
+    }
+    .menu-buttons{
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 0px 10px 0px 10px;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    #DLT{
+        display: inline-block;
+        margin-left:5px;
+    }
+    .dlt-custom{
+        border: none  !important;
+        color:red;
+    }
+    .dlt-custom:hover,focus{
+        background: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: #000;
+    }
+    .reactions{
+        margin-bottom: 10px;
+    }
+}
+.image-view{
+    margin-top: 25px;
+    padding: 0px;
+    .main-image{
+        img{
+            width: 100%;
+            height: 60vh;
+        }
+    }
+    .post-container{
+        width: 100%;
+        box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+        margin-top: 20px;
+        padding: 10px;
+    .post-content{
+        padding: 10px;
+        font-family:Arial, Helvetica, sans-serif;
+        .title{font-style: bold;font-size: 40px;}
+        .post-desc{font-size:25px !important;}
+        }
+    } 
+}
+ 
+.commentcontainer{
+    margin-top: 20px;
+    width: 100%;
+    box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+    padding:10px;
+    .dlt-custom{
+        border: none  !important;
+        color:red;
+    }
+    .dlt-custom:hover,focus{
+        background: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: #000;
+    }
+}
+.commentbox{
+    width: 100%;
+}
+
