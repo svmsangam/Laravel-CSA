@@ -6,6 +6,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Model\Posts;
 use App\Policies\PostPolicy;
+use App\Http\Controller\ProfileController;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Posts::class => PostPolicy::class,
+        ProfileController::class=>PostPolicy::class,
     ];
 
     /**

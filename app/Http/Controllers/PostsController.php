@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Models\Posts;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddPostRequest;
 use Intervention\Image\Facades\Image as Image;
@@ -22,7 +23,7 @@ class PostsController extends Controller
     public function index()
     {
         //
-        $posts = Posts::latest()->paginate(5);
+        $posts = Posts::latest()->where('isApproved',1)->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
@@ -45,7 +46,7 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AddPostRequest $request)
+    public function store(AddPostRequest $request, User $user)
     {
         //
        $post = new Posts;
@@ -55,6 +56,7 @@ class PostsController extends Controller
         Image::make($image)->resize(600, 600)->save( public_path('/images/' . $filename ) );
         $post->images = $filename;  
        }
+        $post->isApproved=1?Auth::user()->role==1:"";
        
        $post->title = $request['title'];
        $post->body = $request['body'];
@@ -115,8 +117,7 @@ class PostsController extends Controller
         $post->body = $request['body'];
         $post->update();            
  
-         return redirect()->route('posts.index')
-                         ->with('success','Post updated.');
+         return redirect()->route('posts.index')->with('success','Post updated.');
 
     }
 
@@ -131,7 +132,7 @@ class PostsController extends Controller
         //
         $this->authorize('delete',$post);
         $post->delete();
-        return redirect()->route('posts.index')
+        return redirect()->back()
         ->with('success','Post deleted.');
     }
 }

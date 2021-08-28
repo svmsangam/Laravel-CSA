@@ -1,26 +1,21 @@
-@extends ('layouts.app')
-
+@extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header custom-card-header">
-                    <div class="d-flex align-items-center">
-                        <h2>All Posts</h2>                   
-                        <div class="ml-auto">
-                            @include ('layouts._message')
-                            <a href="{{ route('posts.create') }}" class="btn btn-outline-secondary addButton">Add Post</a>
-                        </div>
-                    </div>
-                </div>
-            </div>    
-                @foreach ($posts as $post)
-                    <div class="container">                        
+    <div class="container">
+        <div class="row">
+            <div class="col-2 user-details">
+                <p>{{$user->email}}</p>
+                <p>{{$user->name}}</p>
+                <p>Total Posts:&nbsp;{{$posts->count()}}</p>
+            </div>
+            <div class="col-offset-2 col-8 ml-auto">
+                @include('layouts._message');
+                @if($posts->count()>0)
+                    @foreach($posts as $post)
+                    <div class="container">
                         <div class="row image-card">
                             <div class="menu-buttons">
                             @can('update',$post)
-                                <a href="{{route('posts.edit',$post->id)}}"><strong class="text-muted">Edit</strong></a>
+                                <a href="{{route('profilepost.edit',$post->id)}}"><strong class="text-muted">Edit</strong></a>
                             @endcan
                             @can('delete',$post)    
                                 <form id="DLT" action="{{route('posts.destroy',$post->id)}}" method="post" class="form-delete">
@@ -48,23 +43,21 @@
                             <div class="reactions">
                             {{str_plural('view',$post->views)}} <span></span> <strong class="text-muted">{{$post->views}}</strong>
                             {{str_plural('reply',$post->reply_count)}} <span ></span> <strong class="text-muted">{{$post->reply_count}}</strong>
+                            <span>Status:
+                                @if($post->isApproved == 0)
+                                    <strong class="text-muted">Pending</strong>
+                                @else
+                                    <strong class="text-muted">Approved</strong>
+                                @endif
+                            </span>
                             </div>
                             <a href="{{$post->url}}" class="btn btn-primary btn-custom">View Post</a>
                             </div>
                         </div>
-                    </div>         
-                @endforeach
-        </div>
-        <div class="col-md-12 mt-4">
-            <div class="row">
-               <div class=" offset-4 m-auto">
-                {{$posts->links('pagination::bootstrap-4')}}
-               </div>
+                    </div>  
+                    @endforeach
+                @endif
             </div>
-        </div> 
+        </div>
     </div>
-    <!-- <div class="row pagination-div">
-   
-    </div> -->
-</div>
 @endsection

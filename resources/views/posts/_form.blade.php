@@ -2,7 +2,7 @@
 
 <div class="form-group">
     <label for="post-title">Title</label>
-    <input type="text" name="title" id="post-title" value="{{old('title',$post->title)}}"
+    <input type="text" name="title" id="title" value="{{old('title',$post->title)}}"
     class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
     @if($errors->has('title'))
         <div class="invalid-feedback">
@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label for="post-body">Body</label>
-    <textarea name="body" id="post-body" rows="10" cols="30"
+    <textarea name="body" id="body" rows="10" cols="30"
     class="form-control {{$errors->has('body')? 'is-invalid' : ''}}">
         {{old('body',$post->body)}}
     </textarea>
@@ -24,7 +24,7 @@
 </div>
 <div class="form-group">
     <strong>Image:</strong>
-    <input type="file" name="image" class="form-control" placeholder="image">
+    <input type="file" name="image" id="image" class="form-control" placeholder="image">
     @if($errors->has('image'))
         <div class="invalid-feedback">
             <strong>{{$errors->first('image')}}</strong>
@@ -32,5 +32,5 @@
     @endif
 </div>
 <div class="form-group">
-    <button type="submit" class="btn btn-outline-primary btn-lg">{{$buttonText}}</button>
+    <button type="submit" class="btn btn-outline-primary btn-lg post-btn-custom">{{$buttonText}}</button>
 </div>

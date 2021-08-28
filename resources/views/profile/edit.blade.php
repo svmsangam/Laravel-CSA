@@ -9,13 +9,15 @@
                     <div class="d-flex align-items-center">
                         <h2>Create Post</h2>
                         <div class="ml-auto">
-                            <a href="{{ route('posts.index') }}" 
-                            class="btn btn-outline-secondary back-to-post-btn">Back to All Posts</a>
+                            <a href="{{url()->previous()}}" 
+                            class="btn btn-outline-secondary addButton">Back</a>
                         </div>
                     </div>
                 </div>
+
                 <div class="card-body">
-                    <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" id="createForm">
+                <form action="{{ route('profilepost.update',$post->id) }}" method="post" enctype="multipart/form-data" id="editForm">
+                    {{method_field('PUT')}}
                     @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
@@ -29,8 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label for="body">Body</label>
-                            <textarea name="body" id="body" rows="10" cols="30"
-                            class="form-control {{$errors->has('body')? 'is-invalid' : ''}}">{{old('body',$post->body)}}</textarea>
+                            <textarea name="body" id="body" rows="10" cols="30" class="form-control {{$errors->has('body')? 'is-invalid' : ''}}">{{old('body',$post->body)}}</textarea>
                             @if($errors->has('body'))
                                 <div class="invalid-feedback">
                                     <strong>{{$errors->first('body')}}</strong>
@@ -47,9 +48,9 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-outline-primary btn-lg post-btn-custom">Post</button>
+                            <button type="submit" class="btn btn-outline-primary btn-lg post-btn-custom">Update</button>
                         </div>
-                    </form>
+                   </form>
                 </div>
             </div>
         </div>
@@ -63,7 +64,7 @@
     return this.optional(element) || (element.files[0].size <= param)
     },); 
         jQuery(function($){
-            $('#createForm').validate({
+            $('#editForm').validate({
                 rules:{
                     title:{
                         required:true,
@@ -72,9 +73,8 @@
                         required:true,
                     },
                     image:{
-                        required:false,
                         accept: "image/jpg,image/jpeg,image/png",
-                        filesize: 2,
+                        filesize: 2,097,152,
                     },
                 },
                 messages:{
@@ -91,6 +91,7 @@
 
                 },
             });
+
         });
 
 </script>

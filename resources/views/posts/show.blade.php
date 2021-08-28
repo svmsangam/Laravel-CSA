@@ -4,10 +4,10 @@
         <div class="row">
             <div class="col-md-12 p-0">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header custom-card-header">
                         <div class="d-flex align-items-center">             
                             <div class="mr-auto">
-                                <a href="{{ route('posts.index') }}" class="btn btn-outline-secondary">Back to All Posts</a>
+                                <a href="{{ url()->previous() }}" class="btn btn-outline-secondary back-to-post-btn">Back</a>
                             </div>   
                         </div>
                     </div>

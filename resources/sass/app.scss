@@ -7,21 +7,48 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.image-card {
-  margin-top: 30px;
-  //box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
-  background: #fff;
-}
 .pagination-div{
     width:20px;
 }
-// .image-card{
-//     height: inherit;
-//     padding-top:20px;
-//     padding-bottom:20px;
-        
-// }
+.navbar-custom{
+    background: #88D453 !important;
+    a.navbar-brand{
+        font-size: 25px;
+        font-weight: bold;
+        color: #fff !important;
+    }
+    a.nav-link{
+        font-size: 17px;
+        font-weight: 600;
+        color: #fff !important;
+    }
+    .dropdown-custom{
+        color: #000 !important;
+        font-size: 20px;
+    }
+    .dropdown-custom:hover{
+        background:#88D453 !important;
+        color: #fff !important;
+    }
+}
+div.custom-card-header{
+    background: #231F20;
+    border-bottom: none;
+    outline: none;
+    color: #fff;
+    .addButton,.addButton:hover:focus:active{
+        background: #88D453;
+        color: #fff;
+    }
+    .back-to-post-btn,.back-to-post-btn:hover:focus:active{
+        background: #88D453;
+        color: #fff;
+    }
+}
 .image-card{
+    margin-top: 30px;
+    box-shadow:0 7px 30px -10px #88D453 ;
+    // background: #fff;
     height: inherit;
     padding-top:20px;
     padding-bottom:20px;
@@ -45,10 +72,11 @@
         margin-left:5px;
     }
     .dlt-custom{
+        background: none;
         border: none  !important;
         color:red;
     }
-    .dlt-custom:hover,focus{
+    .dlt-custom:hover:focus:active{
         background: none !important;
         outline: none !important;
         box-shadow: none !important;
@@ -57,6 +85,14 @@
     .reactions{
         margin-bottom: 10px;
     }
+    .btn-custom{
+        background: #88D453;
+        border:none;
+    }
+    .btn-custom:active:focus:hover{
+        background:#88D453;
+        border: none;
+    } 
 }
 .image-view{
     margin-top: 25px;
@@ -69,7 +105,7 @@
     }
     .post-container{
         width: 100%;
-        box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+        box-shadow:0 7px 30px -10px #88D453;
         margin-top: 20px;
         padding: 10px;
     .post-content{
@@ -78,26 +114,67 @@
         .title{font-style: bold;font-size: 40px;}
         .post-desc{font-size:25px !important;}
         }
-    } 
+    }
 }
  
 .commentcontainer{
     margin-top: 20px;
     width: 100%;
-    box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+    box-shadow:0 7px 30px -10px #88D453;
     padding:10px;
     .dlt-custom{
         border: none  !important;
         color:red;
+        outline: none;
     }
-    .dlt-custom:hover,focus{
+    .dlt-custom:hover:focus:active{
         background: none !important;
         outline: none !important;
         box-shadow: none !important;
-        color: #000;
+        color: red;
     }
 }
 .commentbox{
     width: 100%;
 }
+.user-details{
+    height: 100%;
+    position: fixed;
+}
+.approve-btn{
+    background:#88D453;
+    border: none;
+    color: #fff;
+}
+.approve-btn:hover:focus:active{
+    background:#88D453;
+    border: none;
+    color: #fff;
+} 
+.post-btn-custom{
+    background: #88D453;
+    border:none;
+    color: #fff;
+}
+.post-btn-custom:hover:focus:active{
+    background: #88D453 !important;
+    color: #fff;
+    border:none;
+}
+.btn-outline-primary:hover{
+    background: #88D453 !important;
+    color: #fff;
+    border:none;
+} 
+.btn-outline-primary{
+    background: #88D453 !important;
+    color: #fff;
+    border:none; 
+}
+label.error{
+    color: red;
+}
+.p-post{
+    font-size: 20px;
+}    
 

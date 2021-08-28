@@ -50,6 +50,6 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
     public function getUrlAttribute(){
-        return '#';
+        return route('user.show',$this->id);
     }
 }

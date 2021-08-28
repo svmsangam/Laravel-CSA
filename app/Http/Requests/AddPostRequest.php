@@ -27,7 +27,7 @@ class AddPostRequest extends FormRequest
             //
             'title'=>'required|max:255',
             'body'=>'required',
-            'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'=>'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
         ];
     }
 }

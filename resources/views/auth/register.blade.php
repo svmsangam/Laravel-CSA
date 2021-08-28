@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" id="registerForm">
                         @csrf
 
                         <div class="form-group row">
@@ -74,4 +74,49 @@
         </div>
     </div>
 </div>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery.validate.js')}}"></script>
+<script>
+    if ($('#registerForm').length>0){
+            $('#registerForm').validate({
+                rules:{
+                    name:{
+                        required:true,
+                    },
+                    email:{
+                        required:true,
+                        email:true
+                    },
+                    password:{
+                        required:true,
+                        minlength:8
+                    },
+                    password_confirmation:{
+                        required:true,
+                        minlength:8,
+                        equalTo: "#password"
+                    },
+                },
+                messages:{
+                    name:{
+                        required:"Name can't be empty",
+                    },
+                    email:{
+                        required:"Email can't be empty",
+                        email:"Invalid email"
+                    },
+                    password:{
+                        required:"Password can't be empty",
+                        minlength:"Password must contain at least 8 characters"
+                    },
+                    password_confirmation:{
+                        required:"Confirm password can't be empty",
+                        minlength:"Password must contain at least 8 characters",
+                        equalTo:"Confirm password and password didn't match"
+                    },
+                },
+            });
+    }
+
+</script>
 @endsection
