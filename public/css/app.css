@@ -10101,13 +10101,12 @@ div.custom-card-header .back-to-post-btn, div.custom-card-header .back-to-post-b
   height: 60vh;
 }
 .image-view .post-container {
-  width: 100%;
   box-shadow: 0 7px 30px -10px #88D453;
   margin-top: 20px;
   padding: 10px;
+  word-wrap: break-word;
 }
 .image-view .post-container .post-content {
-  padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .image-view .post-container .post-content .title {
@@ -10124,12 +10123,12 @@ div.custom-card-header .back-to-post-btn, div.custom-card-header .back-to-post-b
   box-shadow: 0 7px 30px -10px #88D453;
   padding: 10px;
 }
-.commentcontainer .dlt-custom {
+.commentcontainer .dlt-comment {
   border: none !important;
   color: red;
   outline: none;
 }
-.commentcontainer .dlt-custom:hover:focus:active {
+.commentcontainer .dlt-comment:hover {
   background: none !important;
   outline: none !important;
   box-shadow: none !important;
@@ -10138,11 +10137,6 @@ div.custom-card-header .back-to-post-btn, div.custom-card-header .back-to-post-b
 
 .commentbox {
   width: 100%;
-}
-
-.user-details {
-  height: 100%;
-  position: fixed;
 }
 
 .approve-btn {
@@ -10187,4 +10181,19 @@ label.error {
 
 .p-post {
   font-size: 20px;
+}
+
+.dashboard-menu {
+  height: 100%;
+}
+.dashboard-menu ul {
+  list-style-type: none;
+}
+
+.notification-container {
+  font-weight: bold;
+  text-align: center;
+}
+.notification-container span {
+  color: #88D453 !important;
 }

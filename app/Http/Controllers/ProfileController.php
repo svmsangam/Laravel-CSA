@@ -23,7 +23,9 @@ class ProfileController extends Controller
     {   
         $user =  User::findOrFail($id);
         $posts = Posts::where('user_id',$id)->orderBy('id','desc')->get();
-        return view('profile.index',compact('user','posts')); 
+        $notifications = $user->unreadNotifications;
+        $notifications->markAsRead();
+        return view('profile.index',compact('user','posts','notifications')); 
     }
     public function edit($id)
     {
@@ -35,6 +37,7 @@ class ProfileController extends Controller
     {
         //
         $post = Posts::findOrFail($id);
+        $this->authorize('update',$post);
         $user = Auth::user()->id;
         if($request->hasFile('image')){
          $image= $request->file('image');

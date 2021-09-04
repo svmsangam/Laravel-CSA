@@ -6,7 +6,6 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
 .pagination-div{
     width:20px;
 }
@@ -104,12 +103,11 @@ div.custom-card-header{
         }
     }
     .post-container{
-        width: 100%;
         box-shadow:0 7px 30px -10px #88D453;
         margin-top: 20px;
         padding: 10px;
+        word-wrap:break-word;
     .post-content{
-        padding: 10px;
         font-family:Arial, Helvetica, sans-serif;
         .title{font-style: bold;font-size: 40px;}
         .post-desc{font-size:25px !important;}
@@ -122,24 +120,20 @@ div.custom-card-header{
     width: 100%;
     box-shadow:0 7px 30px -10px #88D453;
     padding:10px;
-    .dlt-custom{
+    .dlt-comment{
         border: none  !important;
         color:red;
         outline: none;
     }
-    .dlt-custom:hover:focus:active{
-        background: none !important;
-        outline: none !important;
+    .dlt-comment:hover{
+        background:none !important;
+        outline:none !important;
         box-shadow: none !important;
         color: red;
     }
 }
 .commentbox{
     width: 100%;
-}
-.user-details{
-    height: 100%;
-    position: fixed;
 }
 .approve-btn{
     background:#88D453;
@@ -176,5 +170,17 @@ label.error{
 }
 .p-post{
     font-size: 20px;
-}    
-
+}  
+.dashboard-menu{
+    height: 100%;
+    ul{
+        list-style-type: none;
+    }
+}
+.notification-container{
+    font-weight: bold;
+    text-align: center;
+    span{
+        color: #88D453 !important;
+    }
+}

@@ -15,17 +15,23 @@
             </div>            
         </div>
         <div class="row image-view">
-            <div class="offset-3 col-6 offset-3 main-image">
-                <img src="/images/{{$post->images}}" class="img-fluid" alt="Responsive image">
+            @if($post->images>0)
+            <div class="offset-md-3 col-md-6 offset-md-3 main-image">
+                <img src="/images/{{$post->images}}" class="img-fluid" alt="No image available">
             </div>
-            <div class="row post-container">
+            @endif
+            <div class=" col-md-12 post-container">
                 <div class="col-md-12 text-center post-content">
                     <p class="title">{{$post->title}}<p>
                     <p class="post-desc"> {!! $post->body_html !!}</p>  
                 </div>
-                <div class="offset-10 col-md-2">
-                    <p><span class="text-muted">Posted By:</span>&nbsp;<strong>{{$post->user->name}}</strong></p>
-                    <p><strong class="text-muted">{{$post->created_date}}</strong></p> 
+                <div class="col-md-12">
+                    <div class="row justify-content-end">
+                    <div class="col-4 text-muted text-center">Posted By:{{$post->user->name}}</div>
+                    </div>
+                    <div class="row justify-content-end">
+                    <div class="col-4 text-muted text-center">{{$post->created_date}}</div>
+                    </div>
                 </div>
             </div>      
         </div>
