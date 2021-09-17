@@ -17,13 +17,13 @@ Route::get('/',[App\Http\Controllers\PostsController::class,'index']);
 
 Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']],function(){
-    Route::get('/dashboard',[App\Http\Controllers\PostApproveController::class,'index'])->name('admin.dashboard');
-    Route::get('/dashboard/posts',[App\Http\Controllers\PostApproveController::class,'showPost'])->name('admin.dashboard.posts');
-    Route::get('/dashboard/comments',[App\Http\Controllers\PostApproveController::class,'showComment'])->name('admin.dashboard.comments');
-    Route::put('/post/{id}/approve',[App\Http\Controllers\PostApproveController::class,'approvePost'])->name('post.approve');
-    Route::delete('/post/{id}/delete',[App\Http\Controllers\PostApproveController::class,'deletePost'])->name('post.delete');
-    Route::put('/comment/{id}/approve',[App\Http\Controllers\PostApproveController::class,'approveComment'])->name('comment.approve');
-    Route::delete('/comment/{id}/approve',[App\Http\Controllers\PostApproveController::class,'deleteComment'])->name('comment.delete');
+    Route::get('/dashboard',[App\Http\Controllers\AdminDashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('/dashboard/posts',[App\Http\Controllers\AdminDashboardController::class,'showPost'])->name('admin.dashboard.posts');
+    Route::get('/dashboard/comments',[App\Http\Controllers\AdminDashboardController::class,'showComment'])->name('admin.dashboard.comments');
+    Route::put('/post/{id}/approve',[App\Http\Controllers\AdminDashboardController::class,'approvePost'])->name('post.approve');
+    Route::delete('/post/{id}/delete',[App\Http\Controllers\AdminDashboardController::class,'deletePost'])->name('post.delete');
+    Route::put('/comment/{id}/approve',[App\Http\Controllers\AdminDashboardController::class,'approveComment'])->name('comment.approve');
+    Route::delete('/comment/{id}/approve',[App\Http\Controllers\AdminDashboardController::class,'deleteComment'])->name('comment.delete');
 
 
 });

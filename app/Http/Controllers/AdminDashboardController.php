@@ -13,7 +13,7 @@ use App\Notifications\postDeleteNotification;
 use App\Notifications\commentApproveNotification;
 use App\Notifications\commentDeleteNotification;
 
-class PostApproveController extends Controller
+class AdminDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.

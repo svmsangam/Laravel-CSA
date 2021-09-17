@@ -14,6 +14,7 @@
                 </div>
         </div>     
         <div class="col-md-8 dashboard-content">
+            @include('layouts._message')
             <div class="row justify-content-center">
              @auth   
                 @if(Auth::user()->id==$user->id)
@@ -50,6 +51,15 @@
                 @endif
              @endauth    
             </div>
+            @if($notifications->count()!=0)
+                <div class="row">
+                    <div class="col-md-12">
+                    <button class="btn mark-button" onclick="window.location.reload(true);">
+                        Mark all as read
+                    </button>
+                    </div>
+                </div>
+            @endif
             @foreach($posts as $post)
                 <div class="row image-card">
                     <div class="menu-buttons">
@@ -82,6 +92,12 @@
                         <div class="reactions">
                             {{str_plural('view',$post->views)}} <span></span> <strong class="text-muted">{{$post->views}}</strong>
                             {{str_plural('reply',$post->reply_count)}} <span ></span> <strong class="text-muted">{{$post->reply_count}}</strong>
+                            @if($post->isApproved==0)
+                            </span>Status:&nbsp;<strong class="text-muted">Pending</strong>
+                            @endif
+                            @if($post->isApproved==1)
+                            </span>Status:&nbsp;<strong class="text-muted">Approved</strong>
+                            @endif
                         </div>
                             <a href="{{$post->url}}" class="btn btn-primary btn-custom">View Post</a>
                         </div>          

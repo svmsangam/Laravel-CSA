@@ -38,7 +38,7 @@ class ProfileController extends Controller
         //
         $post = Posts::findOrFail($id);
         $this->authorize('update',$post);
-        $user = Auth::user()->id;
+        $user = Auth::user();
         if($request->hasFile('image')){
          $image= $request->file('image');
          $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -48,9 +48,13 @@ class ProfileController extends Controller
         
         $post->title = $request['title'];
         $post->body = $request['body'];
-        $post->update();            
-       return redirect()->route('user.show',$user)->with('success','Post updated');
-
+        $post->isApproved=1?$user->role==1:"";
+        $post->update();
+        if($post->isApproved==1)
+        {            
+            return redirect()->route('user.show',$user)->with('success','Post updated');
+        }
+            return redirect()->route('user.show',$user)->with('success','Updated. Sent for Approval');
     }
 }
 

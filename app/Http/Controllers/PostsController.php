@@ -63,8 +63,13 @@ class PostsController extends Controller
        $post->user_id = auth()->user()->id;
        $post->save();            
 
-        return redirect()->route('posts.index')
+        if($post->isApproved==1)
+        {
+           return redirect()->route('posts.index')
                         ->with('success','Post added successfully.');
+        }
+            return redirect()->route('posts.index')
+                        ->with('success','Posted. Send for approval.');
     }
 
     /**
@@ -115,9 +120,16 @@ class PostsController extends Controller
         
         $post->title = $request['title'];
         $post->body = $request['body'];
+        $post->isApproved=1?Auth::user()->role==1:"";
         $post->update();            
  
-         return redirect()->route('posts.index')->with('success','Post updated.');
+        if($post->isApproved==1)
+        {
+           return redirect()->route('posts.index')
+                        ->with('success','Post updated successfully.');
+        }
+            return redirect()->route('posts.index')
+                        ->with('success','Updated. Send for approval.');
 
     }
 

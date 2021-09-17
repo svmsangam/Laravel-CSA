@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
@@ -110,7 +110,7 @@ div.custom-card-header{
     .post-content{
         font-family:Arial, Helvetica, sans-serif;
         .title{font-style: bold;font-size: 40px;}
-        .post-desc{font-size:25px !important;}
+        .post-desc { font-size:20px !important; text-align: justify;}
         }
     }
 }
@@ -183,4 +183,14 @@ label.error{
     span{
         color: #88D453 !important;
     }
+}
+.mark-button{
+    background-color: #231F20;
+    outline: none;
+    color: #fff;
+}
+.mark-button:hover{
+    background-color: #231F20 !important;
+    outline: none;
+    color: #fff;
 }

@@ -22,8 +22,10 @@
             @endif
             <div class=" col-md-12 post-container">
                 <div class="col-md-12 text-center post-content">
-                    <p class="title">{{$post->title}}<p>
-                    <p class="post-desc"> {!! $post->body_html !!}</p>  
+                    <p class="title">{{$post->title}}<p>  
+                </div>
+                <div class="col-md-12 post-desc">
+                    {!! $post->body_html !!}
                 </div>
                 <div class="col-md-12">
                     <div class="row justify-content-end">

@@ -35,11 +35,11 @@
                             @endcan    
                             </div>
                             @if($post->images>0)     
-                            <div class= "col-md-4 image-box">            
+                            <div class= "col-md-4 offset-md-2 image-box">            
                             <img src="/images/{{$post->images}}" class="img-fluid" alt="Responsive image">
                             </div>
                             @endif
-                            <div class="col-offset-2 col-md-6 m-auto">
+                            <div class="col-md-6 m-auto">
                             <h4 class="card-title">{{$post->title}}</h4>
                             <h5>By:&nbsp;<a href="{{$post->user->url}}">{{$post->user->name}}</a></h4>
                             <h5>Created:&nbsp;<small class="text-muted">{{$post->created_date}}</small><h5>   
